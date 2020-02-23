@@ -83,10 +83,10 @@ class AutocompleteEntry(Entry):
     def comparison(self):
         tree.auto_suggestions(self.var.get())
         pattern = re.compile('.*' + self.var.get() + '.*')
-        return [w for w in tree.word_list if re.match(pattern, w)]
-
-        # return [w for w in tree.word_list]
-
+        returns = [w for w in tree.word_list if re.match(pattern, w)]
+        returns = list(dict.fromkeys(returns))
+        return [r for r in returns]
+    
 
 if __name__ == '__main__':
     lista = []
