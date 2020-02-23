@@ -3,7 +3,9 @@
 
 from tkinter import *
 import re
+import binTreeWordSearch as bin_tree
 
+tree = bin_tree.Tree()
 
 class AutocompleteEntry(Entry):
 
@@ -79,8 +81,11 @@ class AutocompleteEntry(Entry):
                 self.lb.activate(index)
 
     def comparison(self):
+        tree.auto_suggestions(self.var.get())
         pattern = re.compile('.*' + self.var.get() + '.*')
-        return [w for w in self.lista if re.match(pattern, w)]
+        return [w for w in tree.word_list if re.match(pattern, w)]
+
+        # return [w for w in tree.word_list]
 
 
 if __name__ == '__main__':
@@ -89,6 +94,8 @@ if __name__ == '__main__':
     for line in f:
         lista.append(line)
     f.close()
+
+    tree.form_tree(lista)
 
     root = Tk()
     root.geometry("100x185")
