@@ -82,11 +82,11 @@ class AutocompleteEntry(Entry):
 
     def comparison(self):
         tree.auto_suggestions(self.var.get())
-        pattern = re.compile(self.var.get() + '.*')
-        # pattern = re.compile('.*' + self.var.get() + '.*') This line instead is FUZZY SEARCH
+        pattern = re.compile(self.var.get() + '.*') # This line is prefix only search
+        # pattern = re.compile('.*' + self.var.get() + '.*') # This line instead is FUZZY SEARCH
         returns = [w for w in tree.word_list if re.match(pattern, w)]
         returns = list(dict.fromkeys(returns))
-        return [r for r in returns]
+        return [r for r in returns[:9]]
     
 
 if __name__ == '__main__':
