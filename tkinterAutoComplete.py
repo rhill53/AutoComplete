@@ -7,6 +7,7 @@ import binTreeWordSearch as bin_tree
 
 tree = bin_tree.Tree()
 
+
 class AutocompleteEntry(Entry):
 
     def __init__(self, lista, *args, **kwargs):
@@ -86,7 +87,7 @@ class AutocompleteEntry(Entry):
         # pattern = re.compile('.*' + self.var.get() + '.*') # This line instead is FUZZY SEARCH
         returns = [w for w in tree.word_list if re.match(pattern, w)]
         returns = list(dict.fromkeys(returns))
-        return [r for r in returns[:9]]
+        return [r for r in returns[:10]]
     
 
 if __name__ == '__main__':

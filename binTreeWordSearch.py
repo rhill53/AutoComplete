@@ -90,28 +90,3 @@ class Tree:
 		self.suggestions_rec(node, temp_word)
 
 		return 1
-
-# # Driver Code
-# # keys = ["hel", "hell", "hi", "he", "cat", "ca", "hello", "high"]
-# filename = open("words.txt", "r")
-# keys = []
-# for line in filename:
-# 	keys.append(line)
-# filename.close()
-#
-# key = input("Search word: ") # key for autocomplete suggestions.
-#
-# # creating tree
-# t = tree()
-#
-# # creating the tree structure
-# t.formtree(keys)
-#
-# # autocompleting the given key using tree structure.
-# comp = t.printAutoSuggestions(key)
-#
-# if comp == -1:
-# 	print("No other strings found with this prefix\n")
-# elif comp == 0:
-# 	print("No string found with this prefix\n")
-
